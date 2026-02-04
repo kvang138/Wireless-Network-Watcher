@@ -1,4 +1,4 @@
-# Wireless Network Watcher
+# 📶🕵️‍♂️📋Wireless Network Watcher
 Ever wonder who is connected to your wireless network at all times? Now you don't have to. Wireless Network Watcher monitors your wireless network for unknown devices and logs them to a database.
 
 ## 📖 Introduction
