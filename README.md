@@ -7,8 +7,18 @@ This project was created for monitoring and logging unknown devices connecting t
 For now, it uses Microsoft SQL Server as the backend for log storage, but it can be modified to use SQLite, MySQL, Oracle, PostgreSQL, etc. The alerting feature will be added in the next update.
 
 ## 🚀Usage
+### Single line
+````
+python3 "wireless network watcher.py" --router-ip <router-ip> --username <username> --password <password> --database-connection-string <connection-string> --check-interval <seconds>
+````
+### Multiline
+
 ```
-python3 "wireless network watcher.py" --router-ip <router ip> --username <Admin's username> --password <Admin's password> --database-connection-string <SQL server connection string> --check-interval <number of seconds until next check>
+python3 "wireless network watcher.py" --router-ip <router-ip> \
+--username <username> \
+--password <password> \
+--database-connection-string <connection-string> \
+--check-interval <seconds>
 ```
 
 ## 🔤🛠️Languages/Tools
