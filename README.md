@@ -1,5 +1,5 @@
 # Wireless Network Watcher
-Monitor and log unknown devices
+Monitor the wireless network for unknown devices and log them to a database.
 
 
 ## Introduction
@@ -7,10 +7,10 @@ This project I created for monitoring and logging unknown devices connecting to 
 
 ## Usage
 ```
-python3 "wireless network watcher.py"
+python3 "wireless network watcher.py" --router-ip <router ip> --username <Admin's username> --password <Admin's password> --database-connection-string <SQL server connection string> --check-interval <number of seconds until next check>
 ```
 
 ## Languages/Tools
  - Python
- - Microsoft SQL Server and SQL (Backend)
+ - Microsoft SQL Server (Backend)
    
