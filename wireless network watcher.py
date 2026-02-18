@@ -8,7 +8,7 @@ import time
 from datetime import datetime
 import pandas as pd
 import re
-from requests.exceptions import ConnectTimeout
+from requests.exceptions import ConnectTimeout, ConnectionError, ConnectionRefusedError, ConnectionAbortedError, ConnectionResetError
 
 arg_parser = argparse.ArgumentParser(description=f"{sys.argv[0]}'s command line argument parser.")
 
@@ -226,6 +226,16 @@ def main():
         log(unknow_device_info_dict)
     except ConnectTimeout:
         print(f"[❗][{datetime.now().strftime("%A, %B %d, %Y %H:%M:%S %f %p")}] Connection timeout with router at {args.router_ip}.")
+    except ConnectionError:
+        print(f"[❗][{datetime.now().strftime("%A, %B %d, %Y %H:%M:%S %f %p")}] Connection error with router at {args.router_ip}.")
+    except ConnectionRefusedError:
+        print(f"[❗][{datetime.now().strftime("%A, %B %d, %Y %H:%M:%S %f %p")}] Router at {args.router_ip} refused the connection.")
+    except ConnectionAbortedError:
+        print(f"[❗][{datetime.now().strftime("%A, %B %d, %Y %H:%M:%S %f %p")}] Connection aborted with router at {args.router_ip}.")
+    except ConnectionResetError:
+        print(f"[❗][{datetime.now().strftime("%A, %B %d, %Y %H:%M:%S %f %p")}] Connection reseted with router at {args.router_ip}.")
+    except Exception as exception:
+        print(f"[❗][{datetime.now().strftime("%A, %B %d, %Y %H:%M:%S %f %p")}] An error has occured.\t{exception}")
 
 if __name__ == "__main__":
     print(f"[i][{datetime.now().strftime("%A, %B %d, %Y %H:%M:%S %f %p")}] Monitoring and logging have been initiated.")
@@ -237,6 +247,7 @@ if __name__ == "__main__":
 
         print (f"[i][{datetime.now().strftime("%A, %B %d, %Y %H:%M:%S %f %p")}] Sleeping for {args.check_interval} second(s).")
         time.sleep(int(args.check_interval))
+
 
 
 
