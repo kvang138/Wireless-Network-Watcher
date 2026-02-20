@@ -8,7 +8,7 @@ import time
 from datetime import datetime
 import pandas as pd
 import re
-from requests.exceptions import ConnectTimeout, ConnectionError, ConnectionRefusedError, ConnectionAbortedError, ConnectionResetError
+from requests.exceptions import ConnectTimeout, RequestException
 
 arg_parser = argparse.ArgumentParser(description=f"{sys.argv[0]}'s command line argument parser.")
 
@@ -247,6 +247,7 @@ if __name__ == "__main__":
 
         print (f"[i][{datetime.now().strftime("%A, %B %d, %Y %H:%M:%S %f %p")}] Sleeping for {args.check_interval} second(s).")
         time.sleep(int(args.check_interval))
+
 
 
 
